@@ -8,8 +8,8 @@ var authenticate = (req, res, next) => {
 			return Promise.reject();
 		}
 
-		res.send = user;
-		res.token = token;
+		req.send = user;
+		req.token = token;
 		next();
 	}).catch((e) => {
 		res.status(401).send();
@@ -17,3 +17,5 @@ var authenticate = (req, res, next) => {
 };
 
 module.exports = {authenticate};
+
+
